@@ -21,12 +21,12 @@
 ## 定长变量
 slot按256bits对齐，不够就往后另外加空间。如果一个slot足够存下两个变量，就可以这么放进去。
 
-`
+```
 uint a;       // slot = 0, 256bits
 address b;    // 1, len = 160bits
 ufixed c;     // 2, 256bits
 bytes32 d;    // 3, 256bits
-`
+```
 > 至于同slot内的读取原理，日后再补。
 
 ## 映射变量
