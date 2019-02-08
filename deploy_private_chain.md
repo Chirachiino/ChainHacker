@@ -97,7 +97,7 @@
 
 在链1这边，发送eth之前需要用`personal.unlockAccount(eth.coinbase)`把coinbase账号解锁。输入刚才设定的passphrase。
 
-然后，到链2查看账户地址，也就是`personal.listAccount()`。把这个地址复制到链1，设成一个变量（当然你也可以直接用，就是麻烦了点）：`toAccount = toAccount = "0x2e60025fd4c3b97f7873275b69ee72c5f089365b"`
+然后，到链2查看账户地址，也就是`personal.listAccount()`。把这个地址复制到链1，设成一个变量（当然你也可以直接用，就是麻烦了点）：`toAccount = "0x2e60025fd4c3b97f7873275b69ee72c5f089365b"`
 
 接下来就是转账了：`eth.sendTransaction({from: eth.coinbase, to: toAccount, value:100000000})`，其中value就是转账金额，这是用最小单位wei来计算的，并不是eth值。
 
