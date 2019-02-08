@@ -69,6 +69,8 @@
 
 `personal.newAccount()`就可以建立一个新账户，它会要求你用一个passphrase，作者用了'passphrase'，这里咱用的是111111和222222。
 
+貌似你可以填个参数作为passphrase，比如`personal.newAccount('123456')`这样。
+
 创建过程可能会爆内存，可以考虑开大一点。
 
 # 把这两个节点连接起来
@@ -97,6 +99,10 @@
 
 在链1这边，发送eth之前需要用`personal.unlockAccount(eth.coinbase)`把coinbase账号解锁。输入刚才设定的passphrase。
 
+同样，也可以把passphrase写到解锁里面：`personal.unlockAccount(eth.coinbase, '111111')`。
+
+注意，每次重新打开链的时候，都需要解锁才能使用账号。就类似于登录吧。
+
 然后，到链2查看账户地址，也就是`personal.listAccount()`。把这个地址复制到链1，设成一个变量（当然你也可以直接用，就是麻烦了点）：`toAccount = "0x2e60025fd4c3b97f7873275b69ee72c5f089365b"`
 
 接下来就是转账了：`eth.sendTransaction({from: eth.coinbase, to: toAccount, value:100000000})`，其中value就是转账金额，这是用最小单位wei来计算的，并不是eth值。
@@ -110,3 +116,59 @@
 # 中场休息
 
 等会就可以开始用remix搞智能合约了！
+
+# 编写合约
+
+remix的地址：http://remix.ethereum.org
+
+要注意，版本是很重要的……教程中的示例给的编译器版本是0.4.0的，记得到右上角改好。合约的代码如下：
+
+```
+pragma solidity ^0.4.0;
+contract Questions {
+
+  //global variables that aren't in a struct
+  mapping(address => uint) public answers; //integer where 0 means hasn't answered, 1 means yes, 2 means no
+  string question;
+  address asker;
+  uint trues;
+  uint falses;
+
+  /// __init__
+  function Questions(string _question) public {
+    asker = msg.sender;
+    question = _question;
+  }
+  
+  //We need a way to validate whether or not they've answered before.
+  //The default of a mapping is 
+  function answerQuestion (bool _answer) public {
+    if (answers[msg.sender] == 0 && _answer) { //haven't answered yet
+      answers[msg.sender] = 1; //they vote true
+      trues += 1;
+    }
+    else if (answers[msg.sender] == 0 && !_answer) {
+      answers[msg.sender] = 2; //falsity
+      falses += 1;
+    }
+    else if (answers[msg.sender] == 2 && _answer) { // false switching to true
+      answers[msg.sender] = 1; //true
+      trues += 1;
+      falses -= 1;
+    }
+    else if (answers[msg.sender] == 1 && !_answer) { // true switching to false
+      answers[msg.sender] = 2; //falsity
+      trues -= 1;
+      falses += 1;
+    }
+  }
+ 
+  function getQuestion() public constant returns (string, uint, uint, uint) {
+    return (question, trues, falses, answers[msg.sender]);
+  }
+}
+```
+
+把这个东西复制过去，然后编译。看到绿框框大概就完事了。
+
+看到下面的Details，里面会有abi和bytecode。那个bytecode
