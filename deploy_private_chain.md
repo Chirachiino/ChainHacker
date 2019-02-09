@@ -171,4 +171,135 @@ contract Questions {
 
 把这个东西复制过去，然后编译。看到绿框框大概就完事了。
 
-看到下面的Details，里面会有abi和bytecode。那个bytecode
+看到下面的Details，里面会有abi和bytecode。那个bytecode里面有很多信息的，记得只要那串数字。
+
+接下来和NodeJS相关的就没看不太懂了，这里用别的方法部署合约。
+
+# 部署合约
+
+先把abi和bytecode送进geth。
+
+## abi
+
+复制了abi之后，你的剪贴板会是这种东西：
+
+```
+[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "answers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "view"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getQuestion",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "view"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_answer",
+				"type": "bool"
+			}
+		],
+		"name": "answerQuestion",
+		"outputs": [],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "nonpayable"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_question",
+				"type": "string"
+			}
+		],
+		"type": "constructor",
+		"payable": true,
+		"stateMutability": "payable"
+	}
+]
+```
+
+这东西好像没办法就这么喂进去，所以你需要先转义，然后用内部JSON库处理。
+
+转义的网站在：http://www.bejson.com/jsonviewernew/
+
+点进去之后，粘贴，删除空格并转义，得到类似下面这样的东西：
+
+```
+[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"answers\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"view\"},{\"constant\":true,\"inputs\":[],\"name\":\"getQuestion\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"view\"},{\"constant\":false,\"inputs\":[{\"name\":\"_answer\",\"type\":\"bool\"}],\"name\":\"answerQuestion\",\"outputs\":[],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"nonpayable\"},{\"inputs\":[{\"name\":\"_question\",\"type\":\"string\"}],\"type\":\"constructor\",\"payable\":true,\"stateMutability\":\"payable\"}]
+```
+
+在geth里面，用JSON.parse：
+
+`abi = JSON.parse('[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"answers\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"view\"},{\"constant\":true,\"inputs\":[],\"name\":\"getQuestion\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"view\"},{\"constant\":false,\"inputs\":[{\"name\":\"_answer\",\"type\":\"bool\"}],\"name\":\"answerQuestion\",\"outputs\":[],\"payable\":false,\"type\":\"function\",\"stateMutability\":\"nonpayable\"},{\"inputs\":[{\"name\":\"_question\",\"type\":\"string\"}],\"type\":\"constructor\",\"payable\":true,\"stateMutability\":\"payable\"}]')`
+
+然后返回处理结果，那就对了。
+
+## bytecode
+
+从remix复制出来的bytecode很多别的信息，包括了OPCODE啥的。这个的话需要自己手动把bytecode挑选出来。
+
+`bytecode = '0x123456...'`
+
+注意两点：字节码要拿引号括起来，然后记得在前面加`0x`。最后返回的是一个绿色的字符串。
+
+## 创建合约对象以及生成对象实例
+
+现在已经有两个关键信息，`abi`和`bytecode`，现在要拿它们创建合约了。
+
+下面是根据abi创建合约对象
+
+`myContract = eth.contract(abi)`
+
+然后生成对象实例。记得解锁账号。
+
+`contractInstance = myContract.new("nmd, why?",{data:bytecode, from:eth.coinbase, gas:10000000})`
+
+第1到第n-1个参数是传给构造函数的，最后的是合约的相关信息。gas我还不懂具体含义，部署的手续费是`eth.estimateGas({data: bytecode})`，不要超过gaslimit就行了（这个也不会超过的）。
+
+生成好之后就可以开始挖矿`miner.start()`，把合约送进区块链。
+
+挖了一次之后就可以`miner.stop()`。现在就可以试一下调用合约。
+
+`ci.getQuestion()`
+
+返回`["nmd, why?", 0, 0, 0]`的话，恭喜你，部署成功!
