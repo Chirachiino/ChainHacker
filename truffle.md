@@ -153,4 +153,28 @@ module.exports = {
     // },
 ...
 ```
-如果取消掉注释，再把`network_id`固定下来，就可以确保mirgate总是可以连接ganache-cli了。
+如果取消掉注释，就可以确保mirgate总是可以连接ganache-cli了。
+
+## 与合约实例互动
+在ganache-cli开着的情况下，使用
+```
+truffle console
+```
+可以进入一个类似geth console的控制台，不过功能有些不同。
+
+```
+truffle(develop)> let instance = await MetaCoin.deployed()
+truffle(develop)> instance
+
+// outputs:
+//
+// Contract
+// - address: "0xa9f441a487754e6b27ba044a5a8eb2eec77f6b92"
+// - allEvents: ()
+// - getBalance: ()
+// - getBalanceInEth: ()
+// - sendCoin: ()
+// ...
+```
+
+基本上就是这样了。如果要用web3的功能，记得不能像geth那样直接`eth.balabala`，要加`web3`前缀。
