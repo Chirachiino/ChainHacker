@@ -178,3 +178,5 @@ truffle(develop)> instance
 ```
 
 基本上就是这样了。如果要用web3的功能，记得不能像geth那样直接`eth.balabala`，要加`web3`前缀。
+
+如果需要退出console，使用`.exit`。退出ganache我还没发现有什么方法，ctrl+C吧……
