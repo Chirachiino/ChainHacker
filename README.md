@@ -1,15 +1,6 @@
 # ChainHacker
-## Creative Project in NJU by our team
-  we are going to do sth. about blockchain and smart contract
-  aimed at the security vulnerability
-## We put the reading notes here 
-## the code to be continued
- 
-# TODO List
-* OPCODE to abi
-* input generator(e.g. fuzzer)
-* adjusting evm for detailed output
-* basic analyzing
+## 关于我们
+我们是来自南京大学的创新项目团队，研究区块链与智能合约，专注于合约漏洞。
 
 # 目录
 * [EVM的一些底层知识](https://github.com/Chirachiino/ChainHacker/blob/master/OPCODE_to_abi.md)
@@ -18,3 +9,10 @@
 
 # 资料
 * [一个合约的样例：僵尸生成](https://github.com/Chirachiino/ChainHacker/blob/master/zombie.sol)
+
+# TODO List
+* ~~OPCODE to abi~~ 我们将要求用户提供abi以及bytecode，不再试图研究OPCODE反编译。
+* 根据sol自动部署合约
+* input generator(e.g. fuzzer)
+* adjusting evm for detailed output
+* basic analyzing
