@@ -82,7 +82,9 @@ module.exports = function(deployer) {
 };
 ```
 
-我在doc上看到的和这里的有点出入，因为doc上写的是，artifacts.require的参数应该是合约名称的字符串而不是sol文件名，因为一个sol里可能有多个合约。这里不知道是不是可以将sol的所有合约都设进去。
+~~我在doc上看到的和这里的有点出入，因为doc上写的是，artifacts.require的参数应该是合约名称的字符串而不是sol文件名，因为一个sol里可能有多个合约。这里不知道是不是可以将sol的所有合约都设进去。~~
+
+**注意：那个sol是糊弄人的，会被省略。这个例子里面合约名和sol名同样，所以没问题。你应该给参数写上合约名称，不然的话就会报错，因为找不到合适的合约。**
 
 然后基本上就是照着填就行了，deployer的用法可以看 https://truffleframework.com/docs/truffle/getting-started/running-migrations 的末尾。基本上没什么好看的，就是三点：
 ```
