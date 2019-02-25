@@ -1,5 +1,8 @@
 知道truffle怎么使用之后一键部署就很简单了。
 
+# 调整网络
+记得打开truffle-config.js，把development网络的注释取消掉，不然默认的端口会是7545，对不上ganache-cli。
+
 # 创建脚本
 打开truffle项目根目录，首先写好这样的脚本：
 ```
@@ -45,8 +48,9 @@ contract HelloWorld {
 ```
 ./deploy HelloWorld
 ```
+参数是合约名称，要在写migrations的js的时候引用的。
 
-这时候你就会看到新打开了一个窗口，那是ganache-cli。然后应该会让你输入sudo命令的密码。
+这时候你就会看到新打开了一个窗口，那是ganache-cli，放着就行了。然后应该会让你输入sudo命令的密码，这是migrate操作要求的。
 
 接着程序自动部署并打开truffle console。要测试合约的话，先生成合约实例：
 ```
@@ -68,4 +72,4 @@ truffle(development)> instance.say()
 'Hello World'
 ```
 
-最后退出console，输入`.exit`。
+最后，要退出console的话，输入`.exit`即可。
