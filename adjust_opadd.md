@@ -1,6 +1,6 @@
 本章记录了如何修改OPCODE中的opAdd，并构造一个场景去测试overflow。从这个样例出发可以自行实现underflow的检测。
 
-# 魔改evm 
+## 魔改evm 
 下载`go-ethereum`，然后打开`/core/vm/instructions.go`。里面是所有OPCODE的go语句实现。
 
 搜索`opAdd`，然后在其中加入一些记录语句。在控制台的环境下，你可以用`fmt.Println()`：
@@ -22,7 +22,7 @@ func opAdd(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *
 
 然后在go-ethereum主目录下编译：`go install -v ./cmd/...`
 
-# 部署合约
+## 部署合约
 下面是一个简单的overflow测试代码，建议使用0.4.25去编译。
 ```
 pragma solidity ^0.4.15;
@@ -48,7 +48,7 @@ contract Overflow {
 ```
 部署的方法见geth私链架设的文章。
 
-# 产生overflow样例
+## 产生overflow样例
 有以下几个要注意的地方：
 * 对于uint类型，它的长度是256。
 * 在EVM内部可以保存精准的大值，但是在函数入口是没办法直接喂一个`Math.pow(2,256)-1`作参数的。
