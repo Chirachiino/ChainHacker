@@ -13,10 +13,12 @@
 {
   "alloc": {},
   "config": {
-    "homesteadBlock": 0,
     "chainID": 72,
+    "homesteadBlock": 0,
     "eip155Block": 0,
-    "eip158Block": 0
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0
   },
   "nonce": "0x0000000000000000",
   "difficulty": "0x4000",
