@@ -1,0 +1,1 @@
+- interpreter.go: 在res, err = operation.execute(&pc, in, contract, mem, stack)附近将op变量记录下来。参考hacker_instruction.go
