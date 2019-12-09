@@ -17,32 +17,14 @@
 package vm
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/params"
 	"math/big"
-	"os"
 	"sync/atomic"
 	"time"
 )
-
-type FirstGroup struct {
-	CALLMSG string
-	CALLER string
-	CALLEE string
-	VALUE *big.Int
-	GAS uint64
-	INPUT []byte
-	CALLMEGEND string
-}
-
-type SecondGroup struct {
-	CALLCLOSING string
-	RMGAS uint64
-	CALLCLOSED string
-}
 
 // emptyCodeHash is used by create to ensure deployment is disallowed to already
 // deployed contract addresses (relevant after the account abstraction).
@@ -247,81 +229,16 @@ func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas 
 		}()
 	}
 	//在这里插入call记录的初始化代码
-	fmt.Println("CALLMSG")
-	fmt.Printf("CALLER,%s\n",caller.Address().Hex())
-	fmt.Printf("CALLEE,%s\n",contract.Address().Hex())
-	fmt.Println("VALUE,",value)
-	fmt.Println("GAS,",new(big.Int).SetUint64(gas))
-	fmt.Println("INPUT,",input)
-	fmt.Println("CALLMSGEND")
-
-	firstGroup := FirstGroup{
-		CALLMSG:"CALLMSG",
-		CALLER:caller.Address().Hex(),
-		CALLEE:contract.Address().Hex(),
-		VALUE:value,
-		GAS:gas,
-		INPUT:input,
-		CALLMEGEND:"CALLMSGEND",
-	}
-	b1, err1 := json.Marshal(firstGroup)
-	if err1 != nil {
-		fmt.Println("error:", err1)
-	}
-	fl, err2 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err2 != nil {
-
-	}
-	defer fl.Close()
-	n1, err3 := fl.Write(b1)
-	fl.WriteString("\n")
-	if err3 == nil && n1 < len(b1) {
-
-	}
-	/*userFile := "test.txt"
-	fout,errr := os.OpenFile(userFile,os.O_RDWR|os.O_CREATE, 0766)
-	defer fout.Close()
-	fout.WriteString("CALLMSG\n")
-	t1 := caller.Address().Hex()
-	fout.WriteString("CALLER\n")
-	fout.WriteString(t1)
-	fout.WriteString("\n")
-	t2 := contract.Address().Hex()
-	fout.WriteString("CALLEE\n")
-	fout.WriteString(t2)
-	fout.WriteString("\n")
-	t3 := value
-	fout.WriteString("VALUE,")
-
-	writer := bufio.NewWriter(fout) // 创建写对象
-	writer.
-
-	fout.WriteString(string(t3.Int64()))
-	t4 := new(big.Int).SetUint64(gas)
-	fout.WriteString("GAS,")
-	fout.WriteString(string(t4.Int64()))
-	t5 := input
-	fout.WriteString("INPUT,")
-	fout.WriteString(string(t5))
-	fout.WriteString("CALLMSGEND\r\n")*/
-
-
-
-	/*logFilename := "test.log"
-	logFile, err := os.OpenFile(logFilename, os.O_RDWR | os.O_CREATE, 0777)
-	defer logFile.Close()
-	logger:=log.New(logFile,"\r\n", log.Ldate | log.Ltime | log.Lshortfile)
-	logger.Println("CALLMSG")
-	logger.Printf("CALLER,%s\n",caller.Address().Hex())
-	logger.Printf("CALLEE,%s\n",contract.Address().Hex())
-	logger.Println("VALUE,",value)
-	logger.Println("GAS,",new(big.Int).SetUint64(gas))
-	logger.Println("INPUT,",input)
-	logger.Println("CALLMSGEND")*/
-
-
-
+	msg := ""
+	msg += "<call>\n<type>call</type>\n"
+	msg += fmt.Sprintf("<caller>%s</caller>\n",caller.Address().Hex())
+	msg += fmt.Sprintf("<callee>%s</callee>\n",contract.Address().Hex())
+	msg += fmt.Sprintf("<value>%v</value>\n",value)
+	msg += fmt.Sprintf("<gas>%v</gas>\n",new(big.Int).SetUint64(gas))
+	msg += fmt.Sprintf("<input>%v</input>\n",input)
+	msg += "<opcodes>\n"
 	//call记录初始化结束，开始跑合约
+	//note: opcodes的记录部分在interpreter.go里面
 	ret, err = run(evm, contract, input, false)
 	// When an error was returned by the EVM or when setting the creation code
 	// above we revert to the snapshot and consume any gas remaining. Additionally
@@ -333,40 +250,15 @@ func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas 
 		}
 	}
 	//call指令执行完毕，进行call记录的结束工作
-	fmt.Println("CALLCLOSING")
-	//fout.WriteString("CALLCLOSING")
-
+	msg += "</opcodes>"
 	if err!=nil{
-		fmt.Println("ERROR,", err)
+		msg += fmt.Sprintf("<error>%v</error>\n", err)
+	} else {
+		msg += fmt.Sprintf("<error></error>\n")
 	}
-	fmt.Println("RMGAS,", new(big.Int).SetUint64(contract.Gas))
-	fmt.Println("CALLCLOSED")
-
-	secondGroup := SecondGroup{
-		CALLCLOSING:"CALLCLOSING",
-		RMGAS:contract.Gas,
-		CALLCLOSED:"CALLCLOSED",
-	}
-	b2, err4 := json.Marshal(secondGroup)
-	if err4 != nil {
-		fmt.Println("error:", err4)
-	}
-	fl, err5 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err5 != nil {
-
-	}
-	defer fl.Close()
-	n2, err6 := fl.Write(b2)
-	fl.WriteString("\n")
-	if err6 == nil && n2 < len(b2) {
-
-	}
-
-	//t6 := new(big.Int).SetUint64(contract.Gas)
-	//fout.WriteString("RMGAS,")
-	//fout.WriteString(string(t6.Int64()))
-	//fout.WriteString("CALLCLOSED")
-
+	msg += fmt.Sprintf("<remainGas>%v</remainGas>\n", new(big.Int).SetUint64(contract.Gas))
+	msg += "</call>\n"
+	writeToFile(msg)
 	return ret, contract.Gas, err
 }
 
@@ -401,40 +293,14 @@ func (evm *EVM) CallCode(caller ContractRef, addr common.Address, input []byte, 
 	contract.SetCallCode(&addr, evm.StateDB.GetCodeHash(addr), evm.StateDB.GetCode(addr))
 
 	//在这里插入call记录的初始化代码
-	fmt.Println("CALLCODEMSG")
-	fmt.Printf("CALLER,%s\n",caller.Address().Hex())
-	fmt.Printf("CALLEE,%s\n",contract.Address().Hex())
-	fmt.Println("VALUE,",value)
-	fmt.Println("GAS,",new(big.Int).SetUint64(gas))
-	fmt.Println("INPUT,",input)
-	fmt.Println("CALLCODEMSGEND")
-
-
-	firstGroup := FirstGroup{
-		CALLMSG:"CALLCODEMSG",
-		CALLER:caller.Address().Hex(),
-		CALLEE:contract.Address().Hex(),
-		VALUE:value,
-		GAS:gas,
-		INPUT:input,
-		CALLMEGEND:"CALLCODEMSGEND",
-	}
-	b1, err1 := json.Marshal(firstGroup)
-	if err1 != nil {
-		fmt.Println("error:", err1)
-	}
-	fl, err2 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err2 != nil {
-
-	}
-	defer fl.Close()
-	n1, err3 := fl.Write(b1)
-	fl.WriteString("\n")
-	if err3 == nil && n1 < len(b1) {
-
-	}
-
-
+	msg := ""
+	msg += "<call>\n<type>callcode</type>\n"
+	msg += fmt.Sprintf("<caller>%s</caller>\n",caller.Address().Hex())
+	msg += fmt.Sprintf("<callee>%s</callee>\n",contract.Address().Hex())
+	msg += fmt.Sprintf("<value>%v</value>\n",value)
+	msg += fmt.Sprintf("<gas>%v</gas>\n",new(big.Int).SetUint64(gas))
+	msg += fmt.Sprintf("<input>%v</input>\n",input)
+	msg += "<opcodes>\n"
 	//call记录初始化结束，开始跑合约
 	ret, err = run(evm, contract, input, false)
 	if err != nil {
@@ -444,34 +310,15 @@ func (evm *EVM) CallCode(caller ContractRef, addr common.Address, input []byte, 
 		}
 	}
 	//call指令执行完毕，进行call记录的结束工作
-	fmt.Println("CALLCODECLOSING")
-
+	msg += "</opcodes>"
 	if err!=nil{
-		fmt.Println("ERROR,", err)
+		msg += fmt.Sprintf("<error>%v</error>\n", err)
+	} else {
+		msg += fmt.Sprintf("<error></error>\n")
 	}
-	fmt.Println("RMGAS,", new(big.Int).SetUint64(contract.Gas))
-	fmt.Println("CALLCODECLOSED")
-
-	secondGroup := SecondGroup{
-		CALLCLOSING:"CALLCODECLOSING",
-		RMGAS:contract.Gas,
-		CALLCLOSED:"CALLCODECLOSED",
-	}
-	b2, err4 := json.Marshal(secondGroup)
-	if err4 != nil {
-		fmt.Println("error:", err4)
-	}
-	fl, err5 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err5 != nil {
-
-	}
-	defer fl.Close()
-	n2, err6 := fl.Write(b2)
-	fl.WriteString("\n")
-	if err6 == nil && n2 < len(b2) {
-
-	}
-
+	msg += fmt.Sprintf("<remainGas>%v</remainGas>\n", new(big.Int).SetUint64(contract.Gas))
+	msg += "</call>\n"
+	writeToFile(msg)
 	return ret, contract.Gas, err
 }
 
@@ -498,39 +345,14 @@ func (evm *EVM) DelegateCall(caller ContractRef, addr common.Address, input []by
 	contract := NewContract(caller, to, nil, gas).AsDelegate()
 	contract.SetCallCode(&addr, evm.StateDB.GetCodeHash(addr), evm.StateDB.GetCode(addr))
 	//在这里插入call记录的初始化代码
-	fmt.Println("DELEGATECALLMSG")
-	fmt.Printf("CALLER,%s\n",caller.Address().Hex())
-	fmt.Printf("CALLEE,%s\n",contract.Address().Hex())
-	fmt.Println("VALUE",new(big.Int).SetUint64(0))
-	fmt.Println("GAS,",new(big.Int).SetUint64(gas))
-	fmt.Println("INPUT,",input)
-	fmt.Println("DELEGATECALLMSGEND")
-
-	firstGroup := FirstGroup{
-		CALLMSG:"DELEGATECALLMSG",
-		CALLER:caller.Address().Hex(),
-		CALLEE:contract.Address().Hex(),
-		VALUE:new(big.Int).SetUint64(0),
-		GAS:gas,
-		INPUT:input,
-		CALLMEGEND:"DELEGATECALLMSGEND",
-	}
-	b1, err1 := json.Marshal(firstGroup)
-	if err1 != nil {
-		fmt.Println("error:", err1)
-	}
-	fl, err2 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err2 != nil {
-
-	}
-	defer fl.Close()
-	n1, err3 := fl.Write(b1)
-	fl.WriteString("\n")
-	if err3 == nil && n1 < len(b1) {
-
-	}
-
-
+	msg := ""
+	msg += "<call>\n<type>callcode</type>\n"
+	msg += fmt.Sprintf("<caller>%s</caller>\n",caller.Address().Hex())
+	msg += fmt.Sprintf("<callee>%s</callee>\n",contract.Address().Hex())
+	msg += fmt.Sprintf("<value>%v</value>\n",new(big.Int).SetUint64(0))
+	msg += fmt.Sprintf("<gas>%v</gas>\n",new(big.Int).SetUint64(gas))
+	msg += fmt.Sprintf("<input>%v</input>\n",input)
+	msg += "<opcodes>\n"
 	//call记录初始化结束，开始跑合约
 	ret, err = run(evm, contract, input, false)
 	if err != nil {
@@ -540,32 +362,15 @@ func (evm *EVM) DelegateCall(caller ContractRef, addr common.Address, input []by
 		}
 	}
 	//call指令执行完毕，进行call记录的结束工作
-	fmt.Println("DELEGATECALLCLOSING")
+	msg += "</opcodes>"
 	if err!=nil{
-		fmt.Println("ERROR,", err)
+		msg += fmt.Sprintf("<error>%v</error>\n", err)
+	} else {
+		msg += fmt.Sprintf("<error></error>\n")
 	}
-	fmt.Println("RMGAS,", new(big.Int).SetUint64(contract.Gas))
-	fmt.Println("DELEGATECALLCLOSED")
-
-	secondGroup := SecondGroup{
-		CALLCLOSING:"DELEGATECALLCLOSING",
-		RMGAS:contract.Gas,
-		CALLCLOSED:"DELEGATECALLCLOSED",
-	}
-	b2, err4 := json.Marshal(secondGroup)
-	if err4 != nil {
-		fmt.Println("error:", err4)
-	}
-	fl, err5 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-	if err5 != nil {
-
-	}
-	defer fl.Close()
-	n2, err6 := fl.Write(b2)
-	fl.WriteString("\n")
-	if err6 == nil && n2 < len(b2) {
-
-	}
+	msg += fmt.Sprintf("<remainGas>%v</remainGas>\n", new(big.Int).SetUint64(contract.Gas))
+	msg += "</call>\n"
+	writeToFile(msg)
 	return ret, contract.Gas, err
 }
 

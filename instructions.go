@@ -17,7 +17,6 @@
 package vm
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
@@ -26,12 +25,7 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"golang.org/x/crypto/sha3"
 	"math/big"
-	"os"
 )
-
-type Group struct {
-	Output string
-}
 
 var (
 	bigZero                  = new(big.Int)
@@ -47,40 +41,19 @@ func opAdd(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *
 	prevX := x
 	math.U256(y.Add(x, y))
 	if(prevX.Cmp(y) > 0){
-		fmt.Println("Overflow")
-
-		group := Group{
-			Output:"Overflow",
-		}
-		b, err := json.Marshal(group)
-		if err != nil {
-			fmt.Println("error:", err)
-		}
-		fl, err0 := os.OpenFile("test.txt", os.O_APPEND|os.O_CREATE, 0644)
-		if err0 != nil {
-
-		}
-		defer fl.Close()
-		n, err1 := fl.Write(b)
-		fl.WriteString("\n")
-		if err1 == nil && n < len(b) {
-
-		}
-		/*userFile := "test.txt"
-		fout,errr := os.OpenFile(userFile,os.O_RDWR|os.O_CREATE, 0766)
-		defer fout.Close()
-		fout.WriteString("Overflow\r\n")*/
+		writeToFile("overflow")
 	}
-	
-	
 	interpreter.intPool.put(x)
 	return nil, nil
 }
 
 func opSub(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *Memory, stack *Stack) ([]byte, error) {
 	x, y := stack.pop(), stack.peek()
+	prevX := x
 	math.U256(y.Sub(x, y))
-
+	if prevX.Cmp(y) < 0{
+		writeToFile("underflow")
+	}
 	interpreter.intPool.put(x)
 	return nil, nil
 }
@@ -453,7 +426,6 @@ func opOrigin(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memor
 }
 
 func opCaller(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory *Memory, stack *Stack) ([]byte, error) {
-	fmt.Println("CALL", pc)
 	stack.push(contract.Caller().Big())
 	return nil, nil
 }
