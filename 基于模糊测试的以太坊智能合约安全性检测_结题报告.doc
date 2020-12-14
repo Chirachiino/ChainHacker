@@ -1,0 +1,2456 @@
+﻿<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+      xmlns:w='urn:schemas-microsoft-com:office:word'
+      xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta http-equiv="Content-Type" content="application/msword; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南京大学_基于模糊测试的以太坊智能合约安全性检测_结题报告_2020年12月14日12时35分53秒</title>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    <w:DisplayBackgroundShape/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style type="text/css">
+        body.c-word--body {
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei", SimHei, SimSun, "Times New Roman", Georgia, Serif;
+        }
+
+        .c-word--empty {
+            text-align: center;
+            font-size: 24px;
+            color: #ddd;
+            padding: 60px 20px;
+        }
+
+        .c-word--title {
+            padding: 9pt 1pt;
+            margin: 0;
+            text-align: center;
+        }
+
+        table.table {
+            width: 100%;
+            margin: 3pt auto;
+            border-collapse: collapse;
+            border-spacing: 1pt;
+        }
+
+        table.table-border {
+            border-collapse: collapse;
+        }
+
+            table.table-border tr th {
+                border: solid windowtext 1pt;
+                border-color: #000;
+                border-width: 1pt;
+            }
+
+            table.table-border tr td {
+                border: solid windowtext 1pt;
+                border-color: #000;
+                border-width: 1pt;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    
+    <link href="http://desktop.nju.edu.cn/assets/dist/css/Areas/JieTi/Declare/ExportWord.css" rel="stylesheet" />
+
+    
+    <style>
+    p.MsoFooter, li.MsoFooter, div.MsoFooter {
+        margin: 0in;
+        margin-bottom: 0.001pt;
+        mso-pagination: widow-orphan;
+        tab-stops: center 3.0in right 6.0in;
+        font-size: 12.0pt;
+        font-family: 等线, 宋体,华文细黑,'Microsoft YaHei',仿宋, 黑体;
+    }
+
+    <!-- /* Style Definitions */
+    @page Section1 {
+        size: 8.5in 11.0in;
+        margin: 1.0in 1.0in 1.0in 1.0in;
+        mso-header-margin: 0.5in;
+        mso-footer-margin: 0.5in;
+        mso-title-page: yes;
+        mso-header: page-info-container--header;
+        mso-even-header: page-info-container--header-;
+        mso-footer: page-info-container--footer;
+        mso-first-header: page-info-container--header;
+        mso-first-footer: page-info-container--footer;
+        mso-paper-source: 0;
+    }
+
+    div.Section1 {
+        page: Section1;
+    }
+
+    table#page-info-container {
+        margin: 0in 0in 0in 900in;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+    }
+    -->
+</style>
+
+</head>
+<body class="c-word--body">
+    <div>
+        
+
+
+        <div class="Section1">
+            <div class="single-page">
+                <div class="word-title1">
+                    <div>南京大学大学生创新训练项目结题报告</div>
+                </div>
+                <!--  一、	项目基本信息 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        一、	项目基本信息
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-base-info-table">
+                            <tbody>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">项目名称</td>
+                                    <td colspan="3" class="c-cell-value">
+                                        基于模糊测试的以太坊智能合约安全性检测
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">项目编号</td>
+                                    <td colspan="3" class="c-cell-value">
+                                        G201910284079
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">起止时间（年月）</td>
+                                    <td colspan="3" class="c-cell-value">
+                                        2019年4月至2020年4月
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">项目负责人</td>
+                                    <td class="c-cell-value" style="width:10%;">
+                                        吴秉乐
+                                    </td>
+                                    <td style="width:20%;" class="c-cell-title">所在院系</td>
+                                    <td class="c-cell-value">
+                                        工程管理学院
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">学号</td>
+                                    <td class="c-cell-value" style="width:10%;">
+                                        171850515
+                                    </td>
+                                    <td style="width:20%;" class="c-cell-title">专业</td>
+                                    <td class="c-cell-value">
+                                        金融工程
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">手机号</td>
+                                    <td class="c-cell-value" style="width:10%;">
+                                        
+                                    </td>
+                                    <td style="width:20%;" class="c-cell-title">邮箱</td>
+                                    <td class="c-cell-value">
+                                        wbl1999311@yeah.net
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;" class="c-cell-title">指导老师</td>
+                                    <td class="c-cell-value" style="width:10%;">
+                                                <span>卜磊</span>
+
+                                    </td>
+                                    <td style="width:20%;" class="c-cell-title">所在院系</td>
+                                    <td class="c-cell-value">
+                                                <span>计算机科学与技术系</span>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  一、	项目基本信息 结束-->
+                <!--  二、	结题报告内容 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        二、	结题报告内容
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-base-info-table">
+                            <tr>
+                                <td>
+                                    <div class="c-jieti">
+                                        <h4 class="c-jieti-title">
+                                            1）项目成员基本情况（人数、院系、专业、年级）； 指导教师基本情况（职称、专业领域）
+                                        </h4>
+                                        <div class="c-jieti-content">
+                                            <div class="c-jieti-child">
+                                                <h5 class="c-jieti-child-title">
+                                                    项目成员基本情况：
+                                                </h5>
+                                                <div class="c-jieti-child-content">
+                                                            <ul class="c-jieti-content-ul">
+                                                                        <li>
+                                                                            吴秉乐/工程管理学院/金融工程/2017
+                                                                        </li>
+                                                                        <li>
+                                                                            陈昌繁/工程管理学院/金融工程/2017
+                                                                        </li>
+                                                                        <li>
+                                                                            陈鹏宇/工程管理学院/金融工程/2017
+                                                                        </li>
+                                                                        <li>
+                                                                            朱梓源/工程管理学院/金融工程/2017
+                                                                        </li>
+
+                                                            </ul>
+
+                                                </div>
+                                                <h5 class="c-jieti-child-title">
+                                                    指导教师基本情况：
+                                                </h5>
+                                                <div class="c-jieti-child-content">
+                                                            <ul class="c-jieti-content-ul">
+                                                                        <li>
+                                                                            卜磊/副教授
+                                                                        </li>
+
+                                                            </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="c-jieti">
+                                        <h4 class="c-jieti-title">
+                                            2）本项目的选题背景、目的与意义
+                                        </h4>
+                                        <div class="c-jieti-content">
+                                            <p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US" style="font-size:12.0pt;line-height:125%;font-family:黑体">2.1 </span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">选题背景<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt; line-height: 125%;"><b><span lang="EN-US" style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:125%;font-family:
+宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast">2.1.1 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:
+125%;font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast">区块链简介<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt; line-height: 125%;"><span style="font-family:宋体;mso-ascii-theme-font:minor-fareast;
+mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-font-weight:bold">区块链无疑是当前时代下最为炙手可热的技术之一。<span lang="EN-US">2008</span>年，第一个区块链由中本聪（<span lang="EN-US">Satoshi Nakamoto</span>）《比特币：一种点对点的电子现金系统》一文概念化而出现。<span lang="EN-US">2009</span>年<span lang="EN-US">1</span>月<span lang="EN-US">3</span>日序号<span lang="EN-US">0</span>的创世区块诞生，中本聪将它作为加密货币比特币的核心组成部分部署实施，在那里它作为所有交易的公共分类账，比特币（<span lang="EN-US">Bitcoin</span>）从此诞生。 <span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt; line-height: 125%;"><span style="font-family:宋体;mso-ascii-theme-font:minor-fareast;
+mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-font-weight:bold">区块链是一个分布式的共享账本和数据库，一个区块链包含一串使用密码学方法相关联的数据块（区块），每个数据块中包含一批次的区块链交易信息，用以验证区块链的信息有效性，类似于区块链网络内部所有人各自持有内容相同的账本，交易在所有账本上同时记录。区块链网络内部维护同一串区块的唯一与有效共识，如果某些节点对数据块的数据进行篡改，由于交易的可验证性，这一个有问题的区块将不会被大多数节点共识承认，也就不会影响整体区块链的可信性，类似于一个错误的账本内容只会被社群里其他账本纠错。因其通过分布式数据存储、点对点传输、共识机制、加密算法等技术的集成，具有去中心化、不可篡改、全程留痕、可以追溯、公开透明、集体维护等特征，可以极大的推动数据的可信存储、商业协同、数据可信的交换和分享，以及随之诞生的新兴商业模式，从而构建可信交易环境，打造可信社会。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 18pt; text-indent: 3pt; line-height: 125%;"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%;font-family:宋体;mso-ascii-theme-font:
+minor-fareast;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">2.1.2</span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
+mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">智能合约与以太坊简介<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">在去中心化数字货币的发展中，中本聪的区块链是第一个可靠的去中心化解决办法。现在，开发者们的注意力开始迅速地转向比特币技术的第二部分：区块链怎样应用于货币以外的领域，智能合约（</span><span lang="EN-US">smart contract</span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）应运而生。一个智能合约是一套以数字形式定义的承诺（</span><span lang="EN-US">promises</span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）</span> <span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">，包括合约参与方可以在上面执行这些承诺的协议。智能合约的诞生使得区块链上的交易更为智能和可信，如果说基础区块链是一个可信的记账人的话，运行于区块链之上的智能合约就是一个可信的交易中间人，使得区块链的交易从简单的转账交易跨越到依托自动执行的智能合约代码的类型丰富的交易方式。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><!--[if gte vml 1]><v:group
+ id="组合_x0020_10" o:spid="_x0000_s1026" style='position:absolute;left:0;
+ text-align:left;margin-left:118.8pt;margin-top:104.1pt;width:170pt;height:233.5pt;
+ z-index:251660288;mso-position-horizontal:right;
+ mso-position-horizontal-relative:margin' coordsize="21590,29654" o:gfxdata="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
+AQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0M
+DgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAz/wAARCAJ0AcsDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAA
+AAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEI
+I0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlq
+c3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW
+19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL
+/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLR
+ChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn
+6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9X/21f+CyX7N3/BO74m2Hg74xfEb/AIQ/xHqmlx6z
+a2f9gapqHm2kks0KSb7W2lQZkt5htLBvkyRggnx3/iKN/YU/6Ll/5ZniD/5BrlPiZoNj4j/4OsfC
+VvqFlaX8A/Zsd/KuIVlTcPEF3g4YEZ5P51+hX/CpvC3/AELXh/8A8F0P/wATQB8Qf8RRv7Cn/Rcv
+/LM8Qf8AyDR/xFG/sKf9Fy/8szxB/wDINfb/APwqbwt/0LXh/wD8F0P/AMTR/wAKm8Lf9C14f/8A
+BdD/APE0AfEH/EUb+wp/0XL/AMszxB/8g0f8RRv7Cn/Rcv8AyzPEH/yDX2//AMKm8Lf9C14f/wDB
+dD/8TR/wqbwt/wBC14f/APBdD/8AE0AfEH/EUb+wp/0XL/yzPEH/AMg0f8RRv7Cn/Rcv/LM8Qf8A
+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
+PvEAruADgw+ympLVlAyu4KsBtIvsqL/j5xeFBJ5nkhJTLyT1AtMoJI1C0iwkzULSKiQt39Nn4vAd
+Rh2H+15x5A09LD8iz9cW9veb7X8BAAD//wMAUEsDBBQABgAIAAAAIQDO6UbH0wAAAKsBAAAqAAAA
+Y2xpcGJvYXJkL2RyYXdpbmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzrJC/agMxDIf3Qt/BaK91
+lyGUEl+WEsgakgcQts7n9PwH2wnN29dtlh4EunQRSEKfPn6b7aefxZVzcTEo6GUHgoOOxgWr4HTc
+vbyCKJWCoTkGVnDjAtvh+Wlz4JlqOyqTS0U0SigKplrTG2LRE3sqMiYObTPG7Km2NltMpD/IMq66
+bo35NwOGBVPsjYK8NysQx1tqn/9mx3F0mt+jvngO9cELrM2LG5Cy5apAyvvkXnvZXAEfa/T/qeF8
+i2Ch4dk4wp95L8/JfmvgIuLhCwAA//8DAFBLAQItABQABgAIAAAAIQAfiHZoFgEAAFECAAATAAAA
+AAAAAAAAAAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1sUEsBAi0AFAAGAAgAAAAhAK0wP/HBAAAA
+MgEAAAsAAAAAAAAAAAAAAAAARwEAAF9yZWxzLy5yZWxzUEsBAi0AFAAGAAgAAAAhADCvQ/9fBAAA
+EQsAAB8AAAAAAAAAAAAAAAAAMQIAAGNsaXBib2FyZC9kcmF3aW5ncy9kcmF3aW5nMS54bWxQSwEC
+LQAKAAAAAAAAACEA7//xaKMIAQCjCAEAGgAAAAAAAAAAAAAAAADNBgAAY2xpcGJvYXJkL21lZGlh
+L2ltYWdlMS5qcGdQSwECLQAUAAYACAAAACEAtjsEIlQGAAALGgAAGgAAAAAAAAAAAAAAAACoDwEA
+Y2xpcGJvYXJkL3RoZW1lL3RoZW1lMS54bWxQSwECLQAUAAYACAAAACEAzulGx9MAAACrAQAAKgAA
+AAAAAAAAAAAAAAA0FgEAY2xpcGJvYXJkL2RyYXdpbmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxz
+UEsFBgAAAAAGAAYArwEAAE8XAQAAAA==
+">
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"></v:stroke>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"></v:f>
+   <v:f eqn="sum @0 1 0"></v:f>
+   <v:f eqn="sum 0 0 @1"></v:f>
+   <v:f eqn="prod @2 1 2"></v:f>
+   <v:f eqn="prod @3 21600 pixelWidth"></v:f>
+   <v:f eqn="prod @3 21600 pixelHeight"></v:f>
+   <v:f eqn="sum @0 0 1"></v:f>
+   <v:f eqn="prod @6 1 2"></v:f>
+   <v:f eqn="prod @7 21600 pixelWidth"></v:f>
+   <v:f eqn="sum @8 21600 0"></v:f>
+   <v:f eqn="prod @7 21600 pixelHeight"></v:f>
+   <v:f eqn="sum @10 21600 0"></v:f>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"></v:path>
+  <o:lock v:ext="edit" aspectratio="t"></o:lock>
+ </v:shapetype><v:shape id="图片_x0020_9" o:spid="_x0000_s1027" type="#_x0000_t75"
+  style='position:absolute;left:698;width:20257;height:27724;visibility:visible;
+  mso-wrap-style:square' o:gfxdata="UEsDBBQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbHyQz07DMAyH
+70i8Q+QralM4IITa7kDhCAiNB7ASt43WOlEcyvb2pNu4IODoPz9/n1xv9vOkForiPDdwXVagiI23
+jocG3rdPxR0oScgWJ8/UwIEENu3lRb09BBKV0ywNjCmFe63FjDSjlD4Q50nv44wpl3HQAc0OB9I3
+VXWrjedEnIq03oC27qjHjympx31un0wiTQLq4bS4shrAECZnMGVTvbD9QSnOhDInjzsyuiBXWQP0
+r4R18jfgnHvJr4nOknrFmJ5xzhraRtHWf3Kkpfz/yGo5S+H73hkquyhdjr3R8m2lj09svwAAAP//
+AwBQSwMEFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAABfcmVscy8ucmVsc2zPwWrDMAwG4Ptg72B0
+X5TuUMaI01uh19I+gLGVxCy2jGSy9e1nemrHjpL4P0nD4SetZiPRyNnCruvBUPYcYp4tXC/Htw8w
+Wl0ObuVMFm6kcBhfX4Yzra62kC6xqGlKVgtLreUTUf1CyWnHhXKbTCzJ1VbKjMX5LzcTvvf9HuXR
+gPHJNKdgQU5hB+ZyK23zHztFL6w81c5zQp6m6P9TMfB3PtPWFCczVQtB9N4U2rp2HOA44NMz4y8A
+AAD//wMAUEsDBBQABgAIAAAAIQBH9aRdvQAAANoAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9dCwFB
+FIbvlf8wHeVGzBJiGUIpLn2U29POsbvZObPtDJZfb5Ry+fZ+PL3zZW0K8aDK5ZYV9HsRCOLE6pxT
+BefTtjsB4TyyxsIyKXiRg+Wi2ZhjrO2TD/Q4+lSEEXYxKsi8L2MpXZKRQdezJXHwrrYy6IOsUqkr
+fIZxU8hBFI2lwZwDIcOSNhklt+PdBIjPcTK6dbBeHXCzf68vQzNmpdqtejUD4an2//CvvdMKpvC9
+Em6AXHwAAAD//wMAUEsBAi0AFAAGAAgAAAAhANvh9svuAAAAhQEAABMAAAAAAAAAAAAAAAAAAAAA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECLQAUAAYACAAAACEAWvQsW78AAAAVAQAACwAAAAAAAAAA
+AAAAAAAfAQAAX3JlbHMvLnJlbHNQSwECLQAUAAYACAAAACEAR/WkXb0AAADaAAAADwAAAAAAAAAA
+AAAAAAAHAgAAZHJzL2Rvd25yZXYueG1sUEsFBgAAAAADAAMAtwAAAPECAAAAAA==
+">
+  <v:imagedata src="file:///C:/Users/WU_BIN~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg"
+   o:title=""></v:imagedata>
+ </v:shape><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"></v:stroke>
+  <v:path gradientshapeok="t" o:connecttype="rect"></v:path>
+ </v:shapetype><v:shape id="文本框_x0020_2" o:spid="_x0000_s1028" type="#_x0000_t202"
+  style='position:absolute;top:26797;width:21590;height:2857;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbHyQz07DMAyH
+70i8Q+QralM4IITa7kDhCAiNB7ASt43WOlEcyvb2pNu4IODoPz9/n1xv9vOkForiPDdwXVagiI23
+jocG3rdPxR0oScgWJ8/UwIEENu3lRb09BBKV0ywNjCmFe63FjDSjlD4Q50nv44wpl3HQAc0OB9I3
+VXWrjedEnIq03oC27qjHjympx31un0wiTQLq4bS4shrAECZnMGVTvbD9QSnOhDInjzsyuiBXWQP0
+r4R18jfgnHvJr4nOknrFmJ5xzhraRtHWf3Kkpfz/yGo5S+H73hkquyhdjr3R8m2lj09svwAAAP//
+AwBQSwMEFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAABfcmVscy8ucmVsc2zPwWrDMAwG4Ptg72B0
+X5TuUMaI01uh19I+gLGVxCy2jGSy9e1nemrHjpL4P0nD4SetZiPRyNnCruvBUPYcYp4tXC/Htw8w
+Wl0ObuVMFm6kcBhfX4Yzra62kC6xqGlKVgtLreUTUf1CyWnHhXKbTCzJ1VbKjMX5LzcTvvf9HuXR
+gPHJNKdgQU5hB+ZyK23zHztFL6w81c5zQp6m6P9TMfB3PtPWFCczVQtB9N4U2rp2HOA44NMz4y8A
+AAD//wMAUEsDBBQABgAIAAAAIQA9RXA1xAAAANwAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Pa8JA
+FMTvBb/D8gRvuqvYqjEbkZZCTy3+BW+P7DMJZt+G7Nak375bEHocZuY3TLrpbS3u1PrKsYbpRIEg
+zp2puNBwPLyPlyB8QDZYOyYNP+Rhkw2eUkyM63hH930oRISwT1BDGUKTSOnzkiz6iWuIo3d1rcUQ
+ZVtI02IX4baWM6VepMWK40KJDb2WlN/231bD6fN6Oc/VV/Fmn5vO9UqyXUmtR8N+uwYRqA//4Uf7
+w2iYTRfwdyYeAZn9AgAA//8DAFBLAQItABQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAAAAAAAAA
+AAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1sUEsBAi0AFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsA
+AAAAAAAAAAAAAAAAHwEAAF9yZWxzLy5yZWxzUEsBAi0AFAAGAAgAAAAhAD1FcDXEAAAA3AAAAA8A
+AAAAAAAAAAAAAAAABwIAAGRycy9kb3ducmV2LnhtbFBLBQYAAAAAAwADALcAAAD4AgAAAAA=
+" filled="f" stroked="f">
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal align=center style='margin-left:21.0pt;text-align:center;
+     text-indent:-21.0pt'><span style='font-size:10.0pt;mso-bidi-font-size:
+     10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+     minor-latin;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+     Calibri;mso-hansi-theme-font:minor-latin'>区块链架构</span><span lang=EN-US
+     style='font-size:10.0pt;mso-bidi-font-size:10.5pt'><o:p></o:p></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><w:wrap type="square" anchorx="margin"></w:wrap>
+</v:group><![endif]--><!--[if !vml]--><!--[endif]--><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">通过实现区块链上的智能合约，以太坊（</span><span lang="EN-US">Ethereum</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">）基于脚本、竞争币和链上元协议（</span><span lang="EN-US">on-chain meta-protocol</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">）概念进行整合和提高，使得开发者能够创建任意的基于共识的、可扩展的、标准化的、特性完备的、易于开发的和协同的应用。以太坊通过建立终极的抽象的基础层——内置有图灵完备编程语言的区块链——使得任何人都能够创建合约和去中心化应用，并在其中设立他们自由定义的所有权规则、交易方式和状态转换函数。以太坊因此成为第一个、也是目前最大的开源公共智能合约区块链平台。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">此后，一般的区块链系统由数据层、网络层、共识层、激励层、合约层和应用层组成。其中，数据层封装了底层数据区块以及相关的数据加密和时间戳等基础数据和基本算法；网络层则包括分布式组网机制、数据传播机制和数据验证机制等；共识层主要封装网络节点的各类共识算法；激励层将经济因素集成到区块链技术体系中来，主要包括经济激励的发行机制和分配机制等；合约层主要封装各类脚本、算法和智能合约，是区块链可编程特性的基础；应用层则封装了区块链的各种应用场景和案例。</span></p><p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin"><br></span></p><div style="text-align: center;"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/bbdc05bfb8d046cf943c40cfd3f62c08.jpg" width="226.167" height="309.4398169934641" class="" style="text-indent: 21pt; font-family: &quot;Microsoft YaHei&quot;, SimHei, SimSun, &quot;Times New Roman&quot;, Georgia, serif; width: 25%; float: none;"></div><div style="text-align: center;">区块链架构</div><p></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 18pt; text-indent: 3pt; line-height: 125%;"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%;font-family:宋体;mso-ascii-theme-font:
+minor-fareast;mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">2.1.3</span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-theme-font:minor-fareast;
+mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast">智能合约的安全隐患<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">以太坊拥有搭建于区块链上的图灵完备的虚拟机（</span><span lang="EN-US">EVM</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">），可以编写完整的程序。以太坊作为开源的公共区块链平台，其所有用户都可以看到基于区块链的智能合约。这就意味着包括安全漏洞在内的所有漏洞都是可见的。如果智能合约开发者疏忽或者测试不充分，造成智能合约的代码有漏洞的话，就非常容易被黑客利用并攻击。并且越是功能强大的智能合约，就越是逻辑复杂，也越是容易出现逻辑漏洞。同时，智能合约语言</span><span lang="EN-US">Solidity</span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">自身与合约设计都有存在漏洞的可能性。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">以太坊在发展过程中已经出现过多次重大安全事件。</span><span lang="EN-US">2016</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">年</span><span lang="EN-US">6</span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">月</span><span lang="EN-US">17</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">日发生了在区块链历史上沉重的一次攻击事件。由于以太坊的智能合约存在着重大缺陷</span><span lang="EN-US">,</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">区块链业界最大的众筹项目</span><span lang="EN-US">TheDAO</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">遭到攻击，导致</span><span lang="EN-US">300</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">多万以太币资产被分离出</span><span lang="EN-US">TheDAO </span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">资产池。</span><span lang="EN-US">2017</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">年</span><span lang="EN-US">7</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">月</span><span lang="EN-US">21</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">日，智能合约编码公司</span><span lang="EN-US">Parity</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">警告</span><span lang="EN-US">1.5</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">版本及之后的钱包软件存在漏洞，据</span><span lang="EN-US">Etherscan.io</span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">的数据确认有价值</span><span lang="EN-US">3000</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">万美元的</span><span lang="EN-US">15</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">万以太币被盗。</span><span lang="EN-US">2017</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">年</span><span lang="EN-US">11</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">月</span><span lang="EN-US">8</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">日，以太坊</span><span lang="EN-US">Parity</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">钱包再出现重大</span><span lang="EN-US">bug</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，多重签名漏洞被黑客利用，导致上亿美元资金被冻结。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">以太坊的智能合约目前已知存在</span><span lang="EN-US">Solidity</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">漏洞、短地址漏洞、交易顺序依赖、时间戳依赖、可重入攻击等漏洞。对于合约调用者，对开源甚至不开源的源码不完全熟悉，不能期待其对合约风险有完整理解，调用他人的智能合约可能会遭到隐含的漏洞的利用；对于合约创建者，由于智能合约部署后难以更新，合约的漏洞可能造成极大的损害。因此，合约安全性的检验是十分必要的。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US" style="font-size:12.0pt;line-height:125%;font-family:黑体">2.2 </span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">项目知识基础和实践基础<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">2.2.1 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">知识基础</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">要完成这个应用，首先需要的是扎实的知识基础以及不错的编程能力。在知识方面，项目成员均为计算机与金融工程实验班学生，有一定的计算机知识的基础，且对区块链以及其较大的金融价值有一定的理解。这些知识都为项目的实现打下了基础。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">而在技术方面，我们主要考虑应用</span><span lang="ZH-TW" style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+mso-fareast-language:ZH-TW">模糊测试方法对智能合约的安全性进行检测。全体组员在这个方面进行了认真的学习研究</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="ZH-TW" style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;
+mso-hansi-theme-font:minor-latin;mso-fareast-language:ZH-TW">模糊测试是一种被广泛应用于软件测试中的技术，主要针对软件的安全性检测，其本质是通过随机生成大量的输入数据来识别软件安全漏洞。这种技术的有效性集中体现在当输入数据为边界数据或不合法数据时，能够极具针对性地暴露软件的隐藏漏洞，同时可以使软件工程师能够及时准确的修补漏洞，避免安全隐患。</span><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体">模型检测已被应用于计算机硬件、通信协议、控制系统、安全认证协议等方面的分析与验证中，取得了令人瞩目的成功，并从学术界辐射到了产业界。</span><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-bidi-font-family:
+宋体">模糊测试的优点在于这种技术的自动化程度高，只需要测试程序随机或半随机地生成测试用例；可以应用于隔离源代码的黑盒测试模式，适用范围更广；是动态实际执行的，比静态检测更好地反应程序状况、减少误报。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-bidi-font-family:
+宋体">以太坊虚拟机运行智能合约与传统程序的处理器机制类似，调用者输入正确格式的参数发起交易，开始运行智能合约；由以太坊虚拟机执行一系列编译后得到的操作码，进行运算并得到修改链上数据的结果，最终将广播后的交易与结果验证打包于新的区块中。在这个过程中应用模糊测试，可以用不同的测试用例调用智能合约，在以太坊虚拟机执行操作码时插桩分析，最终发现合约中可能存在的漏洞。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">2.2.2 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">自主兴趣和实践基础</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">除了知识和技术基础，兴趣也是必不可少的一项。除了对实现一个完整的应用软件所带来的兴奋感和运用已学知识以及自学的新知识对新的领域进行研究的好奇心之外，由于这个项目是自主选题，课题方向正是组里的各个成员所关心和喜爱的，这为项目的推动带来了巨大的动力。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">另一方面，代码开发、问题解决是大家经过完成各种实验和课题所培养出来的能力，大家都有丰富的实践基础。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span lang="EN-US" style="font-size:12.0pt;line-height:125%;font-family:黑体">2.3 </span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">项目目的与意义<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">考虑到以太坊与财产的相关性，以及智能合约部署后难以修改的性质，如果智能合约中有安全相关的漏洞，就很有可能被黑客利用，导致严重后果。在这种情况下，人们就希望能有工具来帮助检测代码，避免合约漏洞而导致的一系列麻烦。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在以太坊智能合约的安全性检测方面应用模糊测试，不仅可以帮助开发者于在公链部署合约之前进行更详尽的测试来及时修正合约漏洞，也可以帮助合约调用者在调用前对被调用的目标合约进行一定程度的测试，以确保此次调用不会产生非预期的恶劣结果。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">开展此次项目有助于团队成员参与项目研究全过程，对提升成员的创新实践能力有一定的帮助。研究中对问题的解决过程，也有助于提升团队成员独立思考、学术研究、语言表达、团队协作、心理承受能力。宝贵的创新实践经历将有助于我们团队成员成长为祖国栋梁。</span><span lang="EN-US"><o:p></o:p></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="c-jieti">
+                                        <h4 class="c-jieti-title">
+                                            3）项目的创新点与特色（包括使用了什么样的创新方法、手段、项目的科学意义和应用价值等）
+                                        </h4>
+                                        <div class="c-jieti-content">
+                                            <p class="MsoNormal" style="line-height:125%"><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">我们的项目有以下创新点与特色点。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp;3</span><span lang="EN-US" style="font-size:12.0pt;line-height:125%;font-family:黑体">.1 </span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">智能分析<span lang="EN-US">abi</span>的模糊测试<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">为达成模糊测试的调用智能合约步骤，我们开发的工具可以在构建测试用例前对智能合约要求的输入</span><span lang="EN-US">abi</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">接口进行分析，进而生成规则内且有足够多样性的测试用例，避免大量测试调用因为输入不符合接口而失败。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang="EN-US" style="font-size:12.0pt;line-height:125%;font-family:黑体">3.2 </span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">分析调用结果指导用例生成<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">为提高测试覆盖率，我们开发的工具在插桩时获取了虚拟机储存区的数据，在已知条件分支判断对应数据在这部分数据中的情况下，将这些数据整理后分析，指导测试用例生成，或有助于提升模糊测试覆盖率，从而提升对安全性漏洞检测的成功率。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US" style="font-size:
+12.0pt;line-height:125%;font-family:黑体">&nbsp;&nbsp;&nbsp; 3.3
+</span><span style="font-size:12.0pt;line-height:125%;font-family:黑体">适用于多种环境的模糊测试<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">我们的工具包含了一个以太坊官方发布的</span><span lang="EN-US">Go</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">语言编写的钱包（</span><span lang="EN-US">geth</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）的修改版本，但修改没有破坏其构建共识的部分。因此我们的工具可以在私有链上进行测试，也可以在暂时性脱机的公有链上测试（脱机避免测试造成财产损失）。</span><span lang="EN-US"><o:p></o:p></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="c-jieti">
+                                        <h4 class="c-jieti-title">
+                                            4）项目实施的收获和体会
+                                        </h4>
+                                        <div class="c-jieti-content">
+                                            <p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">经过一年多的探索和开发，加上疫情期间结题被迫搁置，本项目组终于得以结题，并成功实现了一个面向智能合约的模糊测试工具。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">事实上，智能合约一直都在受到安全领域的关注，然而区块链技术毕竟与以往的程序模型存在不同，所需要关注的问题也不同。这使得现有的漏洞检测技术在移植到以太坊智能合约这样的平台时，需要有针对性地在模型与方法上做出一些调整。在这一过程中，包括静态分析等技术率先得到人们的关注和研究，但是以模糊测试为代表的灰盒测试依然是一个亟待开发的领域。本项目的意义不仅仅是实现了智能合约的模糊测试，更重要的是从输入到分析，制作了一套方便快捷的测试工具，使得用户不只是使用一个预先制作好的工具，而是可以基于工具提供的框架完成进一步的定制化测试。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在项目的开发过程中，我们接触到了各方面的知识，例如软件工程领域的各种测试技术，区块链与分布式账本的概念，以太坊智能合约的开发，以太坊虚拟机的底层原理及实现方法等等，这让我们极大地拓宽了我们的知识视野，加深了对测试技术与智能合约交叉领域的了解，在导师与指导学长的帮助下对以太坊领域有了更深入和清晰的认知，充分地掌握了智能合约背后的原理。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height:125%"><span style="mso-bidi-font-size:
+10.5pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在团队合作方面，大家在项目的进程中都十分积极主动，除了在线上实时汇报进展情况，在仓库中提交自己的学习笔记外，还定时在图书馆组织线下交流，总结阶段性成果，确定下一阶段的目标。当组员们遇到问题，大家都会尽可能地提出解决的办法，互帮互助，让每个人都能对项目有深刻和清晰的理解，实现更为完善的功能。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><span style="mso-bidi-font-size:10.5pt;line-height:125%;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">总之，本创新项目在智能合约安全领域实现了基于模糊测试技术的漏洞检测工具，在实现相应技术的同时也充分地做到了高可扩展性，对用户的合约开发与测试业务有着极大的助力。对于项目组成员来说，我们不仅个人的视野和能力都得到了进步，团队合作的意识也大大地加强，每个人都受益非凡。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;line-height:125%"><o:p></o:p></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="c-jieti">
+                                        <h4 class="c-jieti-title">
+                                            5）项目实施的进展情况及取得的创新成果
+                                        </h4>
+                                        <div class="c-jieti-content">
+                                            <div class="c-jieti-child">
+                                                <h5 class="c-jieti-child-title">
+                                                    成果简述：
+                                                </h5>
+                                                <div class="c-jieti-child-content">
+                                                    <p class="MsoNormal" style="line-height:125%"><span lang="EN-US" style="font-size:
+12.0pt;line-height:125%;font-family:黑体">&nbsp; &nbsp; 5.1 </span><span style="font-size:12.0pt;
+line-height:125%;font-family:黑体">主要研究内容<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">根据研究方向，项目研究划分为以下几个部分：基于合约</span><span lang="EN-US">ABI</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">与运行结果生成模糊测试用例，以太坊虚拟机运行关键过程的插桩，基于插桩结果的自动化分析。研究内容也将按以上三个部分划分进行详细的说明。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">5.1.1 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">基于合约</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">ABI</span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:
+125%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">与运行结果生成模糊测试用例</span></b><b><span lang="EN-US" style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在本部分，我们的研究目标是：能够基于智能合约函数的应用程序二进制接口（</span><span lang="EN-US">Application Binary Interface</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，</span><span lang="EN-US">ABI</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">）</span><span lang="EN-US">,</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">有针对性地生成模糊测试用例，并借助运行过程的信息帮助调整测试用例的生成，以尽可能快速地覆盖程序分支。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">模糊测试是一种灰盒测试，在静态分析的时间开销非常大时，模糊测试可以更容易地达到静态分析无法到达的分支。它的基本流程是：生成模糊测试数据，执行模糊测试数据，监视运行异常，检测是否存在漏洞。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在以太坊中，智能合约的函数运行所提供的参数是有指定类型的，其中既包括常见的数字类型，也包括区块链上的合约地址。因此，不能简单地像通常的模糊测试那样，对数据进行随机变异就作为模糊测试的输入。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">因此，除了程序字节码之外，本项目还要求用户提供智能合约的</span><span lang="EN-US">ABI</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">，以快速地确定合约函数输入的数据类型，精准地产生模糊输入。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在每一次函数运行之后，会产生一些运行记录，其中记录了运行时的堆栈状态和分支覆盖情况。基于这些运行记录，本项目提供了一个分析框架，并提供了一个基础的模糊测试输入发生器，基于运行时的操作数和堆栈数据，将可能有用的数字和合约地址提取出来作为输入种子池，并基于种子池产生更多的模糊测试输入。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">当然，用户更可以利用分析框架，根据自身需求定制模糊测试输入的产生算法，而不需要关心整个模糊测试运行的流程，使得相关开发工作更为简便高效。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">5.1.2 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">以太坊虚拟机运行关键过程的插桩</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在本部分，我们的研究目标是：在以太坊虚拟机的实现代码中进行关键信息的插桩，为后续的分析提供格式化的输出日志。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在智能合约的运行过程中，并不是每一个操作的执行都需要详细地记录下来。因此主要的记录对象就是</span><span lang="EN-US"> CALL </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">指令和部分比较关键的指令。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CALL
+</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">指令是以太坊虚拟机的关键指令，每一个函数的调用都是通过</span><span lang="EN-US"> CALL </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">指令实现的，而</span><span lang="EN-US"> CALL </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">指令也包含了比较重要的数据，例如调用者和调用对象</span><span lang="EN-US">CALLER</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">、</span><span lang="EN-US">CALLEE</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，调用时所携带的数据</span><span lang="EN-US">INPUT</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，调用时提供的燃料</span><span lang="EN-US">GAS</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">（智能合约需要付出资金才能进行，资金多少的衡量就是基于</span><span lang="EN-US">GAS</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">），等等。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">除了记录</span><span lang="EN-US">CALL</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">指令外，插桩过程还记录了</span><span lang="EN-US">CALL</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">的层级，即可以通过插桩信息还原调用树。和一般的程序一样，智能合约中的函数也是可以调用其它函数的，因此也就有了调用树。调用树的作用，举例来说，可以发现是否存在重入漏洞，这也是一个非常著名的智能合约漏洞，曾导致了轰动一时的资产盗窃案件，致使以太坊区块链发生了硬分叉。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">除了</span><span lang="EN-US">CALL</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">指令，我们还监测了一些关键的指令，例如时间戳获取指令</span><span lang="EN-US">TIMESTAMP</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">，比较指令，算术相关指令等。例如，以太坊中并没有禁止算术溢出，而相关案例表明，溢出漏洞可能会造成严重的财产损失。因此，通过对算术指令的插桩，可以观察到在模糊测试的运行阶段是否发生过溢出，并对用户进行警示。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">本项目的插桩框架具有极高的可扩展性，如果用户有相应的需求，可以非常快捷地加入针对其它指令的插桩。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/a3bd5d99f72340c4b7c79f19c1ccddd8.png" style="width: 50%;" width="452.333" height="204.7771100775194"><br></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">插桩位置的伪代码示意</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/ada42921e2744c10af1efe2f4a0bc147.png" style="width: 50%;" width="452.333" height="205.60590909090908"><br></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">输出结果，以</span><span lang="EN-US">xml</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">格式记录</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">5.1.3 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">基于插桩结果的自动化分析</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">在本部分，我们的研究目标是：实现基于插桩结果的自动化分析工具，在提供基本漏洞检测的功能的基础上，提供漏洞分析框架，实现漏洞检测算法的可定制性。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">本项目的自动化分析工具是基于测试预言（</span><span lang="EN-US">Oracle</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">）的。也就是说，当调用树及其内部包含的运行结果符合预先设置的预言后，就认为存在漏洞。当分析结束后，会生成漏洞报告，并提示用户解决的办法。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">下面举一些例子来说明如何基于插桩信息进行自动化分析。以最知名的重入漏洞为例，包含漏洞的程序通常存在这样的代码结构：</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/46e0d0c705444499b5f85814da29bdee.png" style="width: 347px;" width="347" height="150"><br></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">一个典型的重入漏洞代码</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">这段代码先将指定数量的金额发送给调用者，再从合约本身储存的余额记录中扣除已取出的金额。但是，根据以太坊合约的运行机制，在发送的过程中，会调用对方合约的回调函数。此时，恶意合约可以在回调函数中再次调用取款函数，此时合约内的扣除余额操作并未进行，因此该合约将持续向恶意合约转账，直到合约将所有人存储的金额都转出，因为余额不足而停止执行。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left" style="text-indent: 21pt;"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">当重入漏洞存在时，调用树中会呈现这样的特征：存在一个节点是另一个节点的后代，但是这两个节点的</span><span lang="EN-US">CALL</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">特征完全相同。如果我们在调用树中发现了这样的特征，就认为存在重入漏洞。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/3cd414125e8f4840b415513d0c592038.png" style="width: 50%;" width="452.333" height="534.1695625000001"><br></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">重入漏洞的调用树示例</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" align="left"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">以下是本项目提供的基础测试预言：</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span lang="EN-US">Timestamp/Blockstamp </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">依赖：如果合约执行过程中有</span><span lang="EN-US">timestamp/blockstamp</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">语句，并且是</span><span lang="EN-US">Send</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">函数（</span><span lang="EN-US">gas</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">限制为</span><span lang="EN-US">2300</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">），则存在</span><span lang="EN-US">Timestamp/Blockstamp
+</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">依赖。这个依赖可能导致假随机并被恶意利用。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">重入漏洞：如果存在调用后代与自身完全相同，则存在重入漏洞。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">溢出漏洞：如果两个算术操作数进行运算会导致溢出，则存在溢出漏洞。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span lang="EN-US">GaslessSend</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">漏洞：若</span><span lang="EN-US">Send</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">函数返回</span><span lang="EN-US">out
+of gas</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">错误，则存在</span><span lang="EN-US">GaslessSend</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">漏洞。这个漏洞可能导致在转账未成功的情况下完成了转账时才会发生的行为。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">调用链异常漏洞：以太坊的机制导致调用失败时会回退，但是低级的</span><span lang="EN-US">call</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">方法不会导致上级函数失效，而只是返回一个</span><span lang="EN-US">False</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，导致用户无法得知调用链出错。因此，当调用链出现错误，但是根调用没有报告异常，则认为出现调用链异常漏洞。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoListParagraph" align="left" style="margin-left: 42pt; text-indent: -21pt;"><!--[if !supportLists]--><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:Wingdings;mso-fareast-font-family:
+Wingdings;mso-bidi-font-family:Wingdings">l<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp; </span></span><!--[endif]--><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">危险的</span><span lang="EN-US">DelegateCall</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">：</span><span lang="EN-US">DelegateCall</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">可以让让其他合约在本合约上下文执行，但如果让用户自行指定输入，那么就可能可以使当前合约执行其他合约的任意功能。因此本测试预言检查</span><span lang="EN-US">call</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">的类型是否为</span><span lang="EN-US">DelegateCall</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">，并检查输入是否为用户自己指定的。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">除了已有的这些测试预言，本项目还为测试预言提供了接口，用户在使用自动化分析工具时，可以根据自己的需要，自定义测试预言的规则，程序在分析调用树时会自动与所有测试预言进行比对。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" align="left"><span lang="EN-US" style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>5.2&nbsp; </b></span><b><span style="font-size:12.0pt;font-family:
+宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">取得的创新成果</span></b><b><span lang="EN-US" style="font-size:12.0pt"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">经过一年多的探索和开发，我们成功实现了一个面向以太坊智能合约的模糊测试工具套件。工具套件包含自动化测试调用器、修改后的插桩测试</span><span lang="EN-US">Geth</span><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">客户端、测试分析与用例生成器、报告分析与生成器。套件具有完成基本模糊测试、对以太坊智能合约提供非预期输入并监视异常结果的功能。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">5.2.1 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">自动化测试调用器</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt"><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">这个部分是默认情况下工具套件主要操作部分。使用者只需要调整参数使得调用器可以链接到部署着待测试合约的以太坊区块链上，再填写目标合约部署的地址，准备调用必须的</span><span lang="EN-US">abi</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">文件，启动工具即可对该合约开始自动化的模糊测试。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US"><!--[if gte vml 1]><v:shape id="图片_x0020_1" o:spid="_x0000_i1028"
+ type="#_x0000_t75" style='width:181.5pt;height:207.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="file:///C:/Users/WU_BIN~1/AppData/Local/Temp/msohtmlclip1/01/clip_image009.png"
+  o:title=""></v:imagedata>
+</v:shape><![endif]--></span><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/28fcb392942b41f3a87329d3de4416dd.png" style="width: 25%;" width="226.167" height="258.8865913705584"><span lang="EN-US"><!--[if !vml]--><!--[endif]--></span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">多轮逐个测试函数</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US" style="font-size:11.0pt;mso-bidi-font-size:12.0pt"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt;line-height:125%"><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">5.1.2 </span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">修改后的插桩测试</span></b><b><span lang="EN-US" style="font-size:11.0pt;
+mso-bidi-font-size:12.0pt;line-height:125%">Geth</span></b><b><span style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:
+125%;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">客户端</span></b><b><span lang="EN-US" style="font-size:11.0pt;mso-bidi-font-size:12.0pt;line-height:125%"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt"><span style="font-family:宋体;
+mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">为获取插桩输出的数据，使用者应该使用该份基于以太坊官方</span><span lang="EN-US">Go</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">语言客户端</span><span lang="EN-US">Go-Ethereum</span><span style="font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">即</span><span lang="EN-US">Geth</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">修改之后的客户端启动区块链节点，从而此后的每笔运算会经过修改过的</span><span lang="EN-US">EVM</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">虚拟机，使得插桩代码工作并输出信息。在启动测试后，合约调用的交易信息会反映在控制台输出。</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt;
+mso-no-proof:yes"><!--[if gte vml 1]><v:shape id="图片_x0020_6" o:spid="_x0000_i1027"
+ type="#_x0000_t75" style='width:416pt;height:104.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="file:///C:/Users/WU_BIN~1/AppData/Local/Temp/msohtmlclip1/01/clip_image011.png"
+  o:title=""></v:imagedata>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--></span></b><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/ed13d1561b7d4fb2882c6a2e8b7ee7b8.png" style="width: 50%;" width="452.333" height="113.45894186046513"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><br></span></p><p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">成功的测试调用</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal"><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+11.0pt"><o:p>&nbsp;</o:p></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt;
+mso-no-proof:yes"><!--[if gte vml 1]><v:shape id="图片_x0020_8" o:spid="_x0000_i1026"
+ type="#_x0000_t75" style='width:313.5pt;height:176.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="file:///C:/Users/WU_BIN~1/AppData/Local/Temp/msohtmlclip1/01/clip_image013.png"
+  o:title=""></v:imagedata>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--></span></b><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/e1dd55e3596849cb8f898572712875e5.png" style="width: 50%;" width="452.333" height="254.807672489083"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><br></span></p><p class="MsoNormal" align="center" style="text-align:center"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">插桩</span><span style="font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+minor-latin">获取漏洞相关信息</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt"><o:p>&nbsp;</o:p></span></b></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt"><span class="MsoSubtleEmphasis"><b><span lang="EN-US" style="font-size:11.0pt">5.1.3
+</span></b></span><span class="MsoSubtleEmphasis"><b><span style="font-size:11.0pt;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">测试分析与用例生成器</span></b></span><span class="MsoSubtleEmphasis"><b><span lang="EN-US" style="font-size: 11pt;"><o:p></o:p></span></b></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt"><span class="MsoSubtleEmphasis"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-weight:
+bold">该部分为了提高模糊测试的测试效率，避免测试沦为随机测试，可以</span></span><span class="MsoSubtleEmphasis"><span style="font-family:宋体;mso-fareast-theme-font:
+minor-fareast">基于<span lang="EN-US">EVM</span>虚拟机内插桩获得的堆栈数据，将可能有用的数字和合约地址提取出来作为输入种子池，并基于种子池产生更多的模糊测试输入，以测试逻辑条件分支以及运算限制的边界状况各侧的智能合约运行情况。</span></span><span class="MsoSubtleEmphasis"><span lang="EN-US" style="font-family: 宋体;"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/589a977109444ff8b6e1daa855311935.png" style="width: 50%;" width="452.333" height="354.20785185185184"><br></p>
+
+<p class="MsoNormal" align="center" style="margin-left:21.0pt;text-align:center;
+text-indent:21.0pt"><span class="MsoSubtleEmphasis"><span style="font-family:
+宋体;mso-fareast-theme-font:minor-fareast">用于调整用例生成的堆栈数据</span></span><span class="MsoSubtleEmphasis"><span lang="EN-US" style="font-family: 宋体;"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="margin-left:21.0pt;text-indent:21.0pt"><span class="MsoSubtleEmphasis"><span lang="EN-US" style="font-family: 宋体;"><o:p>&nbsp;</o:p></span></span></p>
+
+<p class="MsoNormal" style="margin-left:21.0pt"><span class="MsoSubtleEmphasis"><b><span lang="EN-US" style="font-size:11.0pt">5.1.4
+</span></b></span><span class="MsoSubtleEmphasis"><b><span style="font-size:11.0pt;font-family:宋体;mso-ascii-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">报告分析与生成器</span></b></span><span class="MsoSubtleEmphasis"><span lang="EN-US" style="font-family: 宋体;"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" style="text-indent:21.0pt"><span class="MsoSubtleEmphasis"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-weight:
+bold">在模糊测试已经基本完成，插桩信息已经成功输出的情况下，最终借助分析漏洞相关信息并总结测试覆盖率，生成针对目标智能合约的本次模糊测试的最终报告。</span></span></p><p class="MsoNormal" align="center" style="margin-left:21.0pt;text-align:center"><b><span lang="EN-US" style="font-size:12.0pt;
+mso-bidi-font-size:11.0pt;mso-no-proof:yes"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"></v:stroke>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"></v:f>
+  <v:f eqn="sum @0 1 0"></v:f>
+  <v:f eqn="sum 0 0 @1"></v:f>
+  <v:f eqn="prod @2 1 2"></v:f>
+  <v:f eqn="prod @3 21600 pixelWidth"></v:f>
+  <v:f eqn="prod @3 21600 pixelHeight"></v:f>
+  <v:f eqn="sum @0 0 1"></v:f>
+  <v:f eqn="prod @6 1 2"></v:f>
+  <v:f eqn="prod @7 21600 pixelWidth"></v:f>
+  <v:f eqn="sum @8 21600 0"></v:f>
+  <v:f eqn="prod @7 21600 pixelHeight"></v:f>
+  <v:f eqn="sum @10 21600 0"></v:f>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"></v:path>
+ <o:lock v:ext="edit" aspectratio="t"></o:lock>
+</v:shapetype><v:shape id="图片_x0020_12" o:spid="_x0000_i1025" type="#_x0000_t75"
+ style='width:265pt;height:270.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:/Users/WU_BIN~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png"
+  o:title=""></v:imagedata>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--></span></b><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt"><o:p></o:p></span></b></p><p class="MsoNormal" style="text-indent:21.0pt"><span class="MsoSubtleEmphasis">
+
+</span></p><p class="MsoNormal" align="center" style="margin-left:21.0pt;text-align:center"><img src="http://desktop.nju.edu.cn/FileResources/PersonalFile/2020-12-14/da6595cc2d8e45e9adc44c595998561b.png" style="width: 50%;" width="438.333" height="447.69908974358975"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><br></span></p><p class="MsoNormal" align="center" style="margin-left:21.0pt;text-align:center"><span style="mso-bidi-font-size:10.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">分析报告样例</span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="text-indent:21.0pt"><span class="MsoSubtleEmphasis"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-weight:
+bold"><br></span></span><span class="MsoSubtleEmphasis"><span lang="EN-US"><o:p></o:p></span></span></p>
+                                                </div>
+                                                <h5 class="c-jieti-child-title">
+                                                    论文发表情况：
+                                                </h5>
+                                                <div class="c-jieti-child-content">
+                                                    暂无
+                                                </div>
+                                                <h5 class="c-jieti-child-title">
+                                                    竞赛获奖情况：
+                                                </h5>
+                                                <div class="c-jieti-child-content">
+                                                    暂无
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--  二、	结题报告内容 结束-->
+                <!--  三、	经费报销情况 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        三、	经费报销情况
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-base-info-table">
+                            <tr>
+                                <td>
+                                    <div class="c-jieti">
+                                        <div class="c-jieti-content">
+                                            暂无
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--  三、	经费报销情况 结束-->
+                <!--  四、	项目组成员签名 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        四、	项目组成员签名
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-yijian-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  四、	项目组成员签名 结束-->
+                <!--  五、	指导老师结题意见 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        五、	指导老师结题意见
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-yijian-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                            <div class="c-yijian-sign">
+                                                <div>导师签字：</div>
+                                                <div>&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  五、	指导老师结题意见 结束-->
+                <!--  六、	院系结题意见  开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        六、	院系结题意见
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-yijian-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                            <div class="c-yijian-sign">
+                                                <div>教学负责人（签章）：</div>
+                                                <div>&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  六、	院系结题意见  结束-->
+                <!--  七、	学校大学生创新创业训练计划专家组意见 开始-->
+                <div class="c-base-info">
+                    <h4 class="c-base-info-title">
+                        七、	学校大学生创新创业训练计划专家组意见
+                    </h4>
+                    <div class="c-base-info-content">
+                        <table class="c-yijian-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+
+                                            <div class="c-yijian-content">
+                                                &nbsp;
+                                            </div>
+                                            <div class="c-yijian-sign">
+                                                <div>负责人（签章）：</div>
+                                                <div>&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--  七、	学校大学生创新创业训练计划专家组意见 结束-->
+            </div>
+        </div>
+        <div>
+            <table id="page-info-container" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <div style="mso-element:header;" id="page-info-container--header">
+                            <p class="MsoHeader">
+                                <img src="http://desktop.nju.edu.cn/assets/img/item_declare_exportword_schoollogo_header.png" width="180" height="45" />
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="mso-element:footer;" id="page-info-container--footer">
+                            <p class="MsoFooter" style="text-align:center;">
+                                <span style="mso-field-code:PAGE"><span style="mso-no-proof:yes"></span></span> / <span style="mso-field-code:NUMPAGES"></span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+</body>
+</html>
